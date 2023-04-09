@@ -1,4 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>Singup</h1>
+
+{{error}}
 
 
 <form action="/singup/" method="POST">
@@ -8,3 +14,5 @@
         Singup
     </button>
 </form>
+
+{% endblock %}
