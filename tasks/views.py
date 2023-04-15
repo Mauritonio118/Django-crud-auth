@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.db import IntegrityError
+from .forms import TaskForm
 
 
 # Create your views here.
@@ -36,5 +37,43 @@ def singup(request):
             'error': 'Password do not macht'
         })
 
+
 def tasks(request):
     return render(request, 'tasks.html')
+
+def create_task(request):
+
+    if request.method =='GET':
+        return render(request, 'create_task.html',{
+            'form': TaskForm
+        })
+    else:
+        print(request.POST)
+        return render(request, 'create_task.html',{
+            'form': TaskForm
+        })
+
+
+def singout(request):
+    logout(request)
+    return redirect('home')
+
+
+def singin(request):
+    if request.method == 'GET':
+        return render(request, 'singin.html', {
+            'form': AuthenticationForm
+        })
+
+    else:
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+
+        if user is None:
+            return render(request, 'singin.html', {
+                'form': AuthenticationForm,
+                'error': 'Username or password is incorrect'
+            })
+        else:
+            login(request, user)
+            return redirect('tasks')
