@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quae error excepturi ullam, asperiores magnam harum perferendis cupiditate modi enim, odit, aut tempora accusamus fugit assumenda ex? Quasi, amet. Blanditiis porro delectus id eos tempora neque corporis aliquid eum nesciunt iusto veritatis ea similique amet, nisi harum enim eveniet deleniti consequuntur! Non voluptate, minima aspernatur, officia sed ducimus voluptatem est dolorum corporis libero laboriosam ad at consectetur reprehenderit repellendus, possimus maxime? Distinctio iure labore quod magnam delectus? Laborum voluptas sapiente illum consequuntur iure rerum cum aperiam necessitatibus quibusdam ipsum maxime sed accusantium, aliquam facere dolores optio quasi velit excepturi pariatur.</p>
+
+<main class="container py-5">
+    <section class="card card-boby">
+        <h1 class="display-1 text-center">TaskMaster App</h1>
+        <p>TaskMaster es una aplicación de gestión de tareas sencilla y eficiente basada en Django, que permite a los usuarios administrar sus responsabilidades diarias de manera organizada. Esta aplicación ofrece una interfaz intuitiva y fácil de usar, permitiendo a los usuarios agregar, editar, eliminar y consultar tareas con un simple sistema CRUD. Las tareas se almacenan en una base de datos segura y se pueden categorizar por prioridad, fecha de vencimiento y estado de finalización. TaskMaster es perfecta para aquellos que buscan una herramienta de administración de tareas sin complicaciones y altamente funcional, mejorando la productividad y facilitando la planificación del tiempo.</p>
+
+        <div class="text-center" >
+            <a class="btn btn-secondary" href="/singin/">
+                Singin
+            </a>
+            <a class="btn btn-dark" href="/singup/"">
+                Singup
+            </a>
+        </div>
+
+    </section>
+</main>
+
 {% endblock %}
